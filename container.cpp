@@ -1,20 +1,40 @@
 #include <iostream>
 
+
 #include "container.hpp"
 
 void Container::insert(int min, int max) {
     insert(head, min, max);
 }
 
-void Container::insert(std::shared_ptr<Node> list, int min, int max){
+std::shared_ptr<Node> Container::insert(std::shared_ptr<Node> list, int min, int max) {
 
-    std::cout << min << " " << max << std::endl;
-    if(!list){
-	list = std::make_shared<Node>(min,max);
+
+    if (!list) {
+        list = std::make_shared<Node>(min, max);
     }
-    std::cout << "Done" << std::endl;
-    if(list->data > max)
-    
-        insert(list->right, min, max);
+    else {
+        std::cout << "Inserting: " << std::endl;
+        list->right = insert(list->right, min, max);
+    }
 
+        return list;
 }
+
+void Container::printMin() {
+    printMin(head);
+}
+
+void Container::printMin(std::shared_ptr<Node> min) {
+    if(!min){
+        std::cout << "The list is empty!" << std::endl;
+    }
+    else {
+        std::cout << min->right << " ";
+        printMin(min->right);
+    }
+}
+
+
+
+

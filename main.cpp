@@ -4,15 +4,6 @@
 
 #include "container.hpp"
 
-template<typename T>
-void print(T const & t){
-
-    std::cout << t << ' ';
-
-}
-
-
-
 int container()
 {
 
@@ -61,14 +52,13 @@ int container()
 
 int main()
 {
-
-	//std::cout << container();
     
     Container a;
 
     a.insert(1,10);
     a.insert(5,9);
-    a.forEach(print<int>);    
+    a.printMin();
+
 
 
     return EXIT_SUCCESS;
