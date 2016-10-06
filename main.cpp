@@ -57,8 +57,15 @@ int main()
 
     a.insert(1,10);
     a.insert(5,9);
+    a.insert(12,15);
+    a.insert(20,30);
+    a.insert(1,4);
+    std::cout << "The minimums are: ";
     a.printMin();
-
+    std::cout << std::endl;
+    std::cout << "The maximums are: ";
+    a.printMax();
+    a.findLargestMax();
 
 
     return EXIT_SUCCESS;
