@@ -4,21 +4,20 @@
 #include <vector>
 #include <memory>
 
-struct Node{
+struct Node
+{
 
-    Node(int m = 0, int M = 0, std::vector<int> c, std::shared_ptr<Node> r = nullptr) : min(m), max(M), container(c), right(r){}
+    Node(int m = 0, int M = 0, std::vector<int> c = {0,0}, std::shared_ptr<Node> r = nullptr) : min(m), max(M), container(c), right(r){}
 
-    std::shared_ptr<Node> right;
-    std::vector<int> container;
-
-    //int data;
     int min;
     int max;
-
+    std::vector<int> container;
+    std::shared_ptr<Node> right;
 };
 
 
-class Container{
+class Container
+{
 
 public:
 
@@ -32,10 +31,17 @@ public:
     void printMax(std::shared_ptr<Node> root);
     void findLargestMax();
     int findLargestMax(const std::shared_ptr<Node> head);
+	void findSmallestMin();
+    int findSmallestMin(const std::shared_ptr<Node> head);
+	int getMax();
+	int getMin();
 
 
 private:
     std::shared_ptr<Node> head;
+	int maximum = 0;
+	int minimum;
+
 };
 
 

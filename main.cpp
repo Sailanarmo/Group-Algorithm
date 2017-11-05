@@ -27,21 +27,30 @@ int container()
 	//min = b.at(0);
     //}
 
-    if(aMin <= bMin){
-	std::cout << "Found potential minimum, checking the maximum..." << std::endl;
-	if(aMax >= bMax){
-	    std::cout << "Found a greater Maximum, checking the range..." << std::endl;
-	    if(aRange > bRange){
-		std::cout << "Found a new minimum for this set!" << std::endl;
-		maxRange = aRange;
-	    } else { 
-		std::cout << "This is the minimum for the set!" << std::endl;
-	    }
-	} else {
-	    std::cout << "Maximum is not greater, cannot be the new minimum!" << std::endl;
-	}
-    } else {
-	std::cout << "This is the smallest minimum." << std::endl;
+    if(aMin <= bMin)
+	{
+		std::cout << "Found potential minimum, checking the maximum..." << std::endl;
+		if(aMax >= bMax)
+		{
+			std::cout << "Found a greater Maximum, checking the range..." << std::endl;
+			if(aRange > bRange)
+			{
+				std::cout << "Found a new minimum for this set!" << std::endl;
+				maxRange = aRange;
+			} 
+			else 
+			{ 
+				std::cout << "This is the minimum for the set!" << std::endl;
+			}
+		} 
+		else 
+		{
+			std::cout << "Maximum is not greater, cannot be the new minimum!" << std::endl;
+		}
+    } 
+	else 
+	{
+		std::cout << "This is the smallest minimum." << std::endl;
     }
 
     return maxRange;
@@ -54,8 +63,8 @@ int main()
 {
     
     Container a;
-
-    a.insert(1,10);
+    
+	a.insert(1,10);
     a.insert(5,9);
     a.insert(12,15);
     a.insert(20,30);
@@ -65,9 +74,9 @@ int main()
     std::cout << std::endl;
     std::cout << "The maximums are: ";
     a.printMax();
-    a.findLargestMax();
-
-
+    std::cout << std::endl;
+	std::cout << "Largest Max in List: " << a.getMax() << std::endl;
+	std::cout << "Smallest Min in List: " << a.getMin() << std::endl;
     return EXIT_SUCCESS;
 
 }
